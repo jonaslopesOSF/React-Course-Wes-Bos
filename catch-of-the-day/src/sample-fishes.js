@@ -1,6 +1,6 @@
 // This is just some sample data so you don't have to think of your own!
 const fishes = {
-  fish1: {
+  fish_1: {
     name: "Pacific Halibut",
     image: "/images/hali.jpg",
     desc:
@@ -9,7 +9,7 @@ const fishes = {
     status: "available"
   },
 
-  fish2: {
+  fish_2: {
     name: "Lobster",
     image: "/images/lobster.jpg",
     desc:
@@ -18,7 +18,7 @@ const fishes = {
     status: "available"
   },
 
-  fish3: {
+  fish_3: {
     name: "Sea Scallops",
     image: "/images/scallops.jpg",
     desc:
@@ -27,7 +27,7 @@ const fishes = {
     status: "unavailable"
   },
 
-  fish4: {
+  fish_4: {
     name: "Mahi Mahi",
     image: "/images/mahi.jpg",
     desc:
@@ -36,7 +36,7 @@ const fishes = {
     status: "available"
   },
 
-  fish5: {
+  fish_5: {
     name: "King Crab",
     image: "/images/crab.jpg",
     desc:
@@ -45,7 +45,7 @@ const fishes = {
     status: "available"
   },
 
-  fish6: {
+  fish_6: {
     name: "Atlantic Salmon",
     image: "/images/salmon.jpg",
     desc:
@@ -54,7 +54,7 @@ const fishes = {
     status: "available"
   },
 
-  fish7: {
+  fish_7: {
     name: "Oysters",
     image: "/images/oysters.jpg",
     desc: "A soft plump oyster with a sweet salty flavor and a clean finish.",
@@ -62,7 +62,7 @@ const fishes = {
     status: "available"
   },
 
-  fish8: {
+  fish_8: {
     name: "Mussels",
     image: "/images/mussels.jpg",
     desc:
@@ -71,7 +71,7 @@ const fishes = {
     status: "available"
   },
 
-  fish9: {
+  fish_9: {
     name: "Jumbo Prawns",
     image: "/images/prawns.jpg",
     desc:
