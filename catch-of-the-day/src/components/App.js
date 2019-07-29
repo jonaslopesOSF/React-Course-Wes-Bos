@@ -4,12 +4,38 @@ import Inventory from "./Inventory";
 import Order from "./Order";
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
+import base from '../base';
 
 class App extends Component {
   state = {
     fishes: {},
     order: {},
   };
+
+  componentDidMount() {
+    const { params } = this.props.match;
+    // First reinstate our localStorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    // Setting state of orders rebuilding a object with JSON.parse
+    if(localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) })
+    }
+
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes"
+    }); 
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(
+      this.props.match.params.storeId, 
+      JSON.stringify(this.state.order));
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   addFish = (fish) => {
     // 1. Take a copy of the existing state
@@ -21,7 +47,7 @@ class App extends Component {
     fishes[`fish_${countFishes}`] = fish // it's will be the key of the object
     // 3. Set the new fishes object to state
     this.setState({
-       fishes: fishes,
+       fishes
     });
     // or just fishes, 'cause when you have the same name you can
     // do this in ES6
@@ -29,6 +55,15 @@ class App extends Component {
 
   loadSampleFishes = () => {
    this.setState({ fishes: sampleFishes })
+  }
+
+  updateFish = (key, updatedFish) => {
+    // 1. Take a copy of the current state
+    const fishes = { ...this.state.fishes };
+    // 2. Update that stete
+    fishes[key] = updatedFish;
+    // 3. Set that to state
+    this.setState({ fishes })
   }
 
   addToOrder = (key) => {
@@ -69,7 +104,9 @@ class App extends Component {
         <div className="inventory">
           <Inventory 
             addFish={this.addFish}
-            loadSampleFishes={this.loadSampleFishes} />
+            updateFish={this.updateFish}
+            loadSampleFishes={this.loadSampleFishes}
+            fishes={this.state.fishes} />
         </div>
       </div>
     );
