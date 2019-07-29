@@ -31,7 +31,7 @@ class Order extends Component {
       const isAvailable = fish && fish.status === "available";
 
       if (isAvailable) {
-        return prevTotal + count * fish.price;
+        return prevTotal + (count * fish.price);
       }
       return prevTotal;
     }, 0);

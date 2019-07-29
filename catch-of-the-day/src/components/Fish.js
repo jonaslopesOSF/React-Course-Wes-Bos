@@ -8,7 +8,7 @@ class Fish extends Component {
 
   render() {
     const { image, name, price, desc, status } = this.props.details;
-    const isAvailable = (status === 'available');
+    const isAvailable = (status === 'available'); // it returns true or false
 
     return (
       <li className="menu-fish">

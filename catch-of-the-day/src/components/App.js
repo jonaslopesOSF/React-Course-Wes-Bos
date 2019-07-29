@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Inventory from "./Inventory";
 import Order from "./Order";
-import sampleFishes from '../sample-fishes';
+import Inventory from "./Inventory";
 import Fish from './Fish';
+import sampleFishes from '../sample-fishes';
 import base from '../base';
 
 class App extends Component {
@@ -24,6 +24,11 @@ class App extends Component {
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: "fishes"
+    }); 
+
+    this.ref = base.syncState(`${params.storeId}/orders`, {
+      context: this,
+      state: "order"
     }); 
   }
 
@@ -103,8 +108,8 @@ class App extends Component {
 
         <div className="inventory">
           <Inventory 
-            addFish={this.addFish}
             updateFish={this.updateFish}
+            addFish={this.addFish}
             loadSampleFishes={this.loadSampleFishes}
             fishes={this.state.fishes} />
         </div>

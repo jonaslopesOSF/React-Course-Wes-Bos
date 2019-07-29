@@ -16,6 +16,7 @@ class Inventory extends Component {
           />
         ))}
         <hr></hr>
+
         <AddFishForm addFish={this.props.addFish} />
         
         <button onClick={this.props.loadSampleFishes}>
